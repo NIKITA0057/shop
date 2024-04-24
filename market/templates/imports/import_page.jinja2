@@ -1,0 +1,116 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+    <div class="Middle Middle_top">
+        <div class="Section Section_column Section_columnLeft">
+            <div class="wrap">
+                <div class="Section-column">
+                    <div class="Section-columnSection">
+                        <header class="Section-header">
+                            <strong class="Section-title">{{ _('Навигация') }}</strong>
+                        </header>
+                        <div class="Section-columnContent">
+                            <div class="NavigateProfile">
+                                <ul class="menu menu_vt">
+                                    <li class="menu-item_ACTIVE menu-item">
+                                        <a class="menu-link"
+                                           href="{{ url('accounts:main') }}">{{ _('Личный кабинет') }}</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class="menu-link" href="{{ url('accounts:profile') }}">{{ _('Профиль') }}</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class="menu-link"
+                                           href="{{ url('order:history_order') }}">{{ _('История заказов') }}</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class="menu-link"
+                                           href="{{ url('shops:shop_dashboard') }}">{{ _('Мой магазин') }}</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class="menu-link"
+                                           href="{{ url('accounts:viewing_history') }}">{{ _('История просмотров товаров') }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Section-content">
+                    <h2>{{ _('Импорт товаров') }}</h2>
+
+                    <form action="{{ url('imports:import-details') }}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <label for="importFile">{{ _('Выберите файл для импорта:') }}</label>
+                        <input type="file" name="importFile" accept=".csv" required>
+                        <button type="submit">{{ _('Запустить импорт') }}</button>
+                    </form>
+
+                    <div>
+                        <p><a href="{{ url('imports:download-csv-template') }}">{{ _('Скачать шаблон CSV') }}</a></p>
+                    </div>
+
+                    {% if import_logs %}
+                        <h3>{{ _('Предыдущие импорты:') }}</h3>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>{{ _('Имя файла') }}</th>
+                                <th>{{ _('Статус') }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for log in import_logs %}
+                                <tr class="import-row clickable-row" data-import-id="{{ log.id }}">
+                                    <td>{{ log.file_name }}</td>
+                                    <td>{{ log.status }}</td>
+                                </tr>
+                                <tr class="details-row" data-import-id="{{ log.id }}" style="display: none;">
+                                    <td colspan="2">
+                                        <table class="import-details-table">
+                                            <tr>
+                                                <th>{{ _('ID импорта') }}</th>
+                                                <th>{{ _('Имя файла') }}</th>
+                                                <th>{{ _('Статус') }}</th>
+                                                <th>{{ _('Временная метка') }}</th>
+                                            </tr>
+                                            <tr>
+                                                <td>{{ log.id }}</td>
+                                                <td>{{ log.file_name }}</td>
+                                                <td>{{ log.status }}</td>
+                                                <td>{{ log.timestamp }}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        {{ _('У вас пока нет импортов ...') }}
+                    {% endif %}
+                </div>
+
+                <style>
+                    .clickable-row {
+                        cursor: pointer;
+                        background-color: #c1d4ec;
+                    }
+                </style>
+                <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        // Handle click event on entire row
+                        $(".clickable-row").on("click", function () {
+                            var importId = $(this).data("import-id");
+                            var detailsRow = $(".details-row[data-import-id=" + importId + "]");
+
+                            // Toggle visibility
+                            detailsRow.toggle();
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+{% endblock %}

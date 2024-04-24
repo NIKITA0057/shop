@@ -1,0 +1,81 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+    <div class="Middle">
+        <div class="wrap">
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="message">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="ProductContainer">
+                {% for product in products %}
+                    <div class="ProductCard">
+                        <div class="ProductCard-desc">
+                            <div class="ProductCard-header">
+                                <h2 class="ProductCard-title">{{ product.name }}</h2>
+                                <div class="ProductCard-look">
+                                    <div class="ProductCard-photo">
+                                        {% if product.images.exists %}
+                                            <img src="{{ product.images.first().image.url }}"
+                                                 alt="{{ product.name }}"/>
+                                        {% else %}
+                                            No image available
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="Tabs Tabs_default">
+                                    <div class="Tabs-wrap">
+                                        <div class="Tabs-block" id="description">
+                                            <div class="table">
+                                                <table>
+                                                    <tr>
+                                                        <th class="hed">{{ _('Характеристика') }}</th>
+                                                        <th class="hed">{{ _('Значение') }}</th>
+                                                    </tr>
+                                                    {% for key, value in product.details.items() %}
+                                                        <tr>
+                                                            <td>{{ key }}</td>
+                                                            <td>{{ value }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ProductCard-info">
+                                <div class="ProductCard-cost">
+                                    <div class="ProductCard-price">
+
+
+                                        {% if prices|length > 0 %}
+                                            <p>{{ prices[product.id] }}</p>
+                                        {% else %}
+                                            <p>{{ _('Цена') }}:N/A</p>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ProductCard-cart">
+                                <div class="ProductCard-cartElement">
+                                    <form method="post" action="{{ url('comparison:remove_from_comparison') }}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                                        <button type="submit"
+                                                class="btn btn_secondary">{{ _('Убрать из сравнения') }}</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

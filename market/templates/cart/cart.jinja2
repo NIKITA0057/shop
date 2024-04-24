@@ -1,0 +1,115 @@
+{% extends 'base.jinja2' %}
+
+{% block title %}
+    Корзина
+{% endblock %}
+
+{% block content %}
+    <div class="Middle Middle_top">
+        <div class="Section">
+            <div class="wrap">
+                {% for item in cart %}
+                    {% with offer=item["offer"] %}
+                        <form class="form" id="cart_form" method="post" action="{{ url('cart:cart-add', offer.id) }}">
+                            <div class="Cart-product">
+                                <div class="Cart-block Cart-block_row">
+                                    <div class="Cart-block Cart-block_pict">
+                                        <a class="Cart-pict"
+                                           href="{{ url('products:product-details', offer.product.id) }}">
+                                            <img class="Cart-img"
+                                                 src='{{ offer.product.images.first().image.url }}'
+                                                 alt="{{ offer.product.name }}'s image"/>
+                                        </a>
+                                    </div>
+                                    <div class="Cart-block Cart-block_info">
+                                        <a class="Cart-title"
+                                           href="{{ url('products:product-details', offer.product.id) }}">{{ offer.product.name }}</a>
+                                        <div class="Cart-desc">{{ offer.product.description|truncate(40) }}
+                                        </div>
+                                    </div>
+                                    <div class="Cart-block Cart-block_shop">
+                                        <div class="Cart-price" id="product-price">
+                                            <p><select size="3" name="offer">
+                                                {% with offers=item["offer"].product.offer_set.all().order_by("price") %}
+                                                    {% for offer in offers %}
+                                                        {% if item["offer"] == offer %}
+                                                            <option selected
+                                                                    value="{{ offer.id }}">{{ offer.shop.name }}:
+                                                                {{ offer.price }}</option>
+                                                        {% else %}
+                                                            <option value="{{ offer.id }}">{{ offer.shop.name }}:
+                                                                {{ offer.price }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endwith %}
+                                            </select></p>
+                                        </div>
+                                    </div>
+                                    <div class="Cart-block Cart-block_price">
+                                        <div class="Cart-price" id="product-price">{{ item["price"] }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Cart-block Cart-block_row">
+                                    <div class="Cart-block Cart-block_seller">
+                                        <!-- - var options = setOptions(items, ['value', 'selected', 'disabled']);-->
+                                    </div>
+                                    <div class="Cart-block Cart-block_amount">
+                                        <div class="Cart-amount">
+                                            <div class="Amount">
+                                                {% csrf_token %}
+                                                <button class="Amount-remove" type="button">
+                                                </button>
+                                                {{ item.form }}
+                                                <button class="Amount-add" type="button">
+                                                </button>
+                                                <input type="submit" value="&#8634;" name="product_quantity">
+                                                <input type="hidden" class="product_id" id="product_id"
+                                                       name="product_id"
+                                                       value="{{ offer.id }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Cart-block Cart-block_delete">
+                                        <input class="Cart-delete" type="image"
+                                               formaction="{{ url('cart:cart-remove', offer.id) }}"
+                                               src="{{ static('img/icons/card/delete.svg') }}" alt="cart.svg">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    {% endwith %}
+                {% endfor %}
+                <div class="Cart-total">
+                    {% with total_price = cart.get_total_price() %}
+                        {% if total_price > 0 %}
+                            <div class="Cart-block Cart-block_total">
+                                <strong class="Cart-title">{{ _('Итого без скидки: ') }}
+                                </strong><span class="Cart-price">{{ cart.get_total_price_without_discount() }}</span>
+                            </div>
+                            <div class="Cart-block Cart-block_total">
+                                <strong class="Cart-title">{{ _('Итого со скидкой: ') }}
+                                </strong><span class="Cart-price">{{ total_price }}</span>
+                            </div>
+                            <div class="Cart-block">
+                                {% if request.user.is_authenticated %}
+                                    <a class="btn btn_success btn_lg"
+                                       href="{{ url('url:step1') }}">{{ _('Оформить заказ') }}</a>
+                                {% else %}
+                                    <a class="btn btn_success btn_lg"
+                                       href="{{ url('accounts:login') }}">{{ _('Оформить заказ') }}</a>
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            <strong class="Cart-title">{{ _('Ваша корзина пуста. Перейдите в') }} <a
+                                    href="{{ url('product:catalog') }}">{{ _('каталог') }}</a>,
+                                {{ _('чтобы совершить покупки') }}</strong>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

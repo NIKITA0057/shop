@@ -1,0 +1,104 @@
+[
+  {
+    "model": "discounts.discountset",
+    "pk": 1,
+    "fields": {
+      "title": "Скидки на набор из телефона и бытовой техники",
+      "description": "Скидки на набор из телефона и любой бытовой техники",
+      "discount_amount": 140,
+      "start_date": "2024-03-16",
+      "end_date": "2024-09-30",
+      "is_active": true,
+      "weight": "0.10",
+      "first_group": [
+        1
+      ],
+      "second_group": [
+        5,
+        28,
+        29,
+        30
+      ]
+    }
+  },
+  {
+    "model": "discounts.discountset",
+    "pk": 2,
+    "fields": {
+      "title": "Телефон и ноутбук!",
+      "description": "Купи ноутбук Dell и телефон Samsung и получи скидку",
+      "discount_amount": 110,
+      "start_date": "2024-03-16",
+      "end_date": "2024-08-31",
+      "is_active": true,
+      "weight": "0.15",
+      "first_group": [
+        1
+      ],
+      "second_group": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "discounts.discountset",
+    "pk": 3,
+    "fields": {
+      "title": "Видеокарта и процессор!",
+      "description": "Купи видеокарту и процессор и получи скидку",
+      "discount_amount": 100,
+      "start_date": "2024-03-16",
+      "end_date": "2024-06-30",
+      "is_active": true,
+      "weight": "0.16",
+      "first_group": [
+        3
+      ],
+      "second_group": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "discounts.discountset",
+    "pk": 4,
+    "fields": {
+      "title": "ЗОЖ!",
+      "description": "Скидка на набор товаров для фитнеса и путешествия",
+      "discount_amount": 100,
+      "start_date": "2024-03-16",
+      "end_date": "2024-05-31",
+      "is_active": true,
+      "weight": "0.90",
+      "first_group": [
+        11,
+        12
+      ],
+      "second_group": [
+        23,
+        24
+      ]
+    }
+  },
+  {
+    "model": "discounts.discountset",
+    "pk": 5,
+    "fields": {
+      "title": "Надень платье и одень ребенка!",
+      "description": "Скидки при покупке платья и детской одежды",
+      "discount_amount": 100,
+      "start_date": "2024-03-16",
+      "end_date": "2024-05-11",
+      "is_active": true,
+      "weight": "0.28",
+      "first_group": [
+        8,
+        22
+      ],
+      "second_group": [
+        9,
+        23
+      ]
+    }
+  }
+  ]

@@ -1,0 +1,58 @@
+{% extends "base.jinja2" %}
+{% block content %}
+<div class="Section-columnSection">
+    <header class="Section-header">
+        <strong class="Section-title">{{ _("Прогресс заполнения") }}
+        </strong>
+    </header>
+    <div class="Section-columnContent">
+        <div class="NavigateProfile">
+            <ul class="menu menu_vt">
+                <li class="menu-item_ACTIVE menu-item"><a class="menu-link" href="#step1">{{ _("Шаг 2. Способ доставки") }}</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="Section-content">
+    <form class="form" method="post">
+        {% csrf_token %}
+        <div class="Order-block Order-block_OPEN" id="step1">
+            <header class="Section-header Section-header_sm">
+                <h2 class="Section-title">{{ _("Шаг 2. Способ доставки") }}
+                </h2>
+            </header>
+            <div class="form-group">
+                <div>
+                    <label class="toggle">
+                        <input type="radio" name="delivery_type" value="regular" checked="checked" /><span class="toggle-box"></span><span class="toggle-text">{{ _("Обычная доставка") }}</span>
+                    </label>
+                </div>
+                <div>
+                    <label class="toggle">
+                        <input type="radio" name="delivery_type" value="express" /><span class="toggle-box"></span><span class="toggle-text">{{ _("Экспресс доставка") }}</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="city">{{  _("Город") }}
+                </label>
+                <input class="form-input" id="city" name="city" type="text" />
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="address">{{ _("Адрес") }}
+                </label>
+                <textarea class="form-textarea" name="address" id="address"></textarea>
+            </div>
+            <div class="Order-footer">
+                <button class="btn btn_success" type="submit">{{ _("Дальше") }}</button>
+                {% if messages %}
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

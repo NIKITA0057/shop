@@ -1,0 +1,30 @@
+{% extends "base.jinja2" %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="header">
+            <h3 class="sign-in">{{ _('Восстановление пароля (1/2)') }}</h3>
+            <h5>{{ _('Для восстановления пароля введите адрес электронной почты, на которую зарегистрирована учетная запись') }}</h5>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div>
+
+                <input class="user-input" type="email" name="email" id="name" placeholder="E-mail"/>
+            </div>
+            <div>
+                <input type="submit" value={{ _("Получить проверочный код") }}/>
+            </div>
+            <a class="registr" href="register.jinja2">
+                {{ _('Вход') }}
+            </a>
+        </form>
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

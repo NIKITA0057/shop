@@ -1,0 +1,77 @@
+[
+  {
+    "model": "discounts.discountcart",
+    "pk": 1,
+    "fields": {
+      "title": "Больше, чем вы ожидали!",
+      "description": "Скидки при стоимости корзины от 2000 до 3000",
+      "percentage": 30,
+      "start_date": "2024-03-17",
+      "end_date": "2024-10-31",
+      "is_active": true,
+      "weight": "0.20",
+      "price_from": "2000.00",
+      "price_to": "3000.00"
+    }
+  },
+  {
+    "model": "discounts.discountcart",
+    "pk": 2,
+    "fields": {
+      "title": "Скидка-шок!",
+      "description": "Скидки при стоимости корзины от 1000 до 2000",
+      "percentage": 21,
+      "start_date": "2024-03-17",
+      "end_date": "2024-07-31",
+      "is_active": true,
+      "weight": "0.14",
+      "price_from": "1000.00",
+      "price_to": "2000.00"
+    }
+  },
+  {
+    "model": "discounts.discountcart",
+    "pk": 3,
+    "fields": {
+      "title": "Секретная скидка!",
+      "description": "Скидки при стоимости корзины от 1500 до 2000",
+      "percentage": 25,
+      "start_date": "2024-03-17",
+      "end_date": "2024-06-21",
+      "is_active": true,
+      "weight": "0.05",
+      "price_from": "1500.00",
+      "price_to": "2000.00"
+    }
+  },
+  {
+    "model": "discounts.discountcart",
+    "pk": 4,
+    "fields": {
+      "title": "Бери много, заплати мало!",
+      "description": "Скидки при стоимости корзины от 5000 до 10000",
+      "percentage": 50,
+      "start_date": "2024-03-17",
+      "end_date": "2024-08-09",
+      "is_active": true,
+      "weight": "0.85",
+      "price_from": "5000.00",
+      "price_to": "10000.00"
+    }
+  },
+  {
+    "model": "discounts.discountcart",
+    "pk": 5,
+    "fields": {
+      "title": "Успей купить!",
+      "description": "Скидки при стоимости корзины от 500 до 750",
+      "percentage": 5,
+      "start_date": "2024-03-17",
+      "end_date": "2024-05-24",
+      "is_active": true,
+      "weight": "0.07",
+      "price_from": "500.00",
+      "price_to": "750.00"
+    }
+  }
+]

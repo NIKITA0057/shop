@@ -1,0 +1,285 @@
+{% extends 'base.jinja2' %}
+
+{% block title %}
+    MEGANO
+{% endblock %}
+
+{% block content %}
+    {% include "products/banners.jinja2" %}
+
+    <div class="Section">
+        <div class="wrap">
+            <div class="BannersHome">
+                {% for category in top_categories %}
+                    <a class="BannersHomeBlock" href="{{ url('product:catalog') }}?category={{ category.name }}">
+                        <div class="BannersHomeBlock-row">
+                            <div class="BannersHomeBlock-block">
+                                <strong class="BannersHomeBlock-title">{{ category.name}}
+                                </strong>
+                                <div class="BannersHomeBlock-content">{% trans %}От{% endtrans %}&#32;<span class="BannersHomeBlock-price">{{ category.min_price }}</span>
+                                </div>
+                            </div>
+                            <div class="BannersHomeBlock-block">
+                                <div class="BannersHomeBlock-img"><img src="{{ category.product_set.first().images.first().image.url }}" alt="{{ category.name }}.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="Section Section_column Section_columnDesktop">
+        <div class="wrap">
+            {% if product_of_day %}
+                <div class="Section-column">
+                    <div class="Section-columnSection Section-columnSection_mark">
+                        <header class="Section-columnHeader">
+                            <strong class="Section-columnTitle">{% trans %}ОГРАНИЧЕННЫЕ ПРЕДЛОЖЕНИЯ{% endtrans %}
+                            </strong>
+                        </header>
+                        <div class="Card"><a class="Card-picture" href="{{ url('products:product-details', product_of_day.id) }}"><img src="{{ product_of_day.images.first().image.url }}" alt="card.jpg"/></a>
+                            <div class="Card-content">
+                                <strong class="Card-title"><a href="{{ url('products:product-details', product_of_day.id) }}">{{ product_of_day.name }}</a>
+                                </strong>
+                                <div class="Card-description">
+                                    <div class="Card-cost">
+                                        {% if product_of_day.discount_products.exists() %}
+                                            {% set discount=(1-product_of_day.discount_products.first().percentage/100) %}
+                                            <span class="Card-priceOld">{{ '%0.2f' % product_of_day.avg_price }}</span>
+                                            <span class="Card-price">{{ '%0.2f' % (product_of_day.avg_price|float*discount) }}</span>
+                                        {% else %}
+                                            <span class="Card-price">{{ '%0.2f' % product_of_day.avg_price }}</span>
+                                        {% endif %}
+                                    </div>
+                                    <div class="Card-category">{{ product_of_day.category.name }}
+                                    </div>
+                                </div>
+                                <div class="CountDown" data-date="{{ time_to_midnight.strftime('%d.%m.%Y')}} 00:00">
+                                    <div class="CountDown-block">
+                                        <div class="CountDown-wrap">
+                                            <div class="CountDown-days">
+                                            </div><span class="CountDown-label">days</span>
+                                        </div>
+                                    </div>
+                                    <div class="CountDown-block">
+                                        <div class="CountDown-wrap">
+                                            <div class="CountDown-hours">
+                                            </div><span class="CountDown-label">hours</span>
+                                        </div>
+                                    </div>
+                                    <div class="CountDown-block">
+                                        <div class="CountDown-wrap">
+                                            <div class="CountDown-minutes">
+                                            </div><span class="CountDown-label">mins</span>
+                                        </div>
+                                    </div>
+                                    <div class="CountDown-block">
+                                        <div class="CountDown-wrap">
+                                            <div class="CountDown-secs">
+                                            </div><span class="CountDown-label">secs</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="Section-content">
+                <header class="Section-header">
+                    <h2 class="Section-title">{% trans %}Популярные товары{% endtrans %}</h2>
+                </header>
+                <div class="Cards">
+                    {% for offer in top_products %}
+                        {% set product=offer.product %}
+                        <div class="Card">
+                            <a class="Card-picture" href="{{ url('products:product-details', product.id) }}">
+                                {% if product.images.first() %}
+                                    <img src="{{ product.images.first().image.url }}" alt="{{ product.name }}">
+                                {% else %}
+                                    <p>{% trans %}Изображение недоступно{% endtrans %}</p>
+                                {% endif %}
+                            </a>
+                            <div class="Card-content">
+                                <strong class="Card-title">
+                                    <a href="{{ url('products:product-details', product.id) }}">{{ product.name }}</a>
+                                </strong>
+                                <div class="Card-description">
+                                    <div class="Card-cost">
+                                        <span class="Card-price">{{ offer.price }}</span>
+                                    </div>
+                                    <div class="Card-category">
+                                        {% with parent = product.category.parent %}
+                                            {% if parent %}{{ parent }} / {% endif %}{{ product.category }}
+                                        {% endwith %}
+                                    </div>
+                                    <div class="Card-hover">
+                                        <form method="post" action="#modal_open">
+                                            {% csrf_token %}
+                                            {{ cart_form }}
+                                            <input type="hidden" class="product_id" id="product_id" name="product_id" value="{{ product.id }}">
+                                            <input class="Card-btn" type="image"
+                                                src="{{ static('img/icons/card/cart.svg') }}" alt="cart.svg">
+                                        </form>
+                                        <div id="modal_open" class="my_modal">
+                                            <div class="my_modal-dialog">
+                                                <div class="my_modal-content">
+                                                    <div class="my_modal-header">
+                                                        <p class="my_modal-title">{% trans %}Поздравляем!{% endtrans %}</p>
+                                                        <a href="#" title="{% trans %}Закрыть модальное окно{% endtrans %}" class="close">×</a>
+                                                    </div>
+                                                    <div class="my_modal-body">
+                                                        <p>{% trans %}Товар успешно добавлен в корзину!{% endtrans %}</p>
+                                                        <a class="btn btn_primary"  href="{{ url('cart:cart') }}">
+                                                            <span class="btn-content">{% trans %}Перейти в корзину{% endtrans %}</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Section Section_column Section_columnRight">
+        <div class="wrap">
+            <div class="Section-content">
+                <div class="Slider Slider_carousel">
+                    <header class="Section-header Section-header_close">
+                        <h2 class="Section-title">{% trans %}Горячие предложения{% endtrans %}
+                        </h2>
+                        <div class="Section-control">
+                            <div class="Slider-navigate">
+                            </div>
+                        </div>
+                    </header>
+                    <div class="Slider-box Cards">
+                        {% for product in hot_offers %}
+                            {% set discount=(1-product.discount_products.first().percentage/100)  %}
+                            <div class="Slider-item">
+                                <div class="Slider-content">
+                                    <div class="Card"><a class="Card-picture" href="{{ url('products:product-details', product.id) }}"><img src="{{ product.images.first().image.url }}" alt="{{ product.name }}.jpg" /></a>
+                                        <div class="Card-content">
+                                            <strong class="Card-title"><a href="{{ url('products:product-details', product.id) }}">{{ product.name }}</a>
+                                            </strong>
+                                            <div class="Card-description">
+                                                <div class="Card-cost"><span class="Card-price"><strike>{{ '%0.2f' % product.avg_price }}</strike> {{ '%0.2f' % (product.avg_price|float*discount) }}</span>
+                                                </div>
+                                                <div class="Card-category">
+                                                    {% with parent = product.category.parent %}
+                                                        {% if parent %}{{ parent }} / {% endif %}{{ product.category }}
+                                                    {% endwith %}
+                                                </div>
+                                                <div class="Card-hover">
+                                                    <form method="post" action="#modal_open">
+                                                        {% csrf_token %}
+                                                        {{ cart_form }}
+                                                        <input type="hidden" class="product_id" id="product_id" name="product_id" value="{{ product.id }}">
+                                                        <input class="Card-btn" type="image"
+                                                            src="{{ static('img/icons/card/cart.svg') }}" alt="cart.svg">
+                                                    </form>
+                                                    <div id="modal_open" class="my_modal">
+                                                        <div class="my_modal-dialog">
+                                                            <div class="my_modal-content">
+                                                                <div class="my_modal-header">
+                                                                    <p class="my_modal-title">{% trans %}Поздравляем!{% endtrans %}</p>
+                                                                    <a href="#" title="{% trans %}Закрыть модальное окно{% endtrans %}" class="close">×</a>
+                                                                </div>
+                                                                <div class="my_modal-body">
+                                                                    <p>{% trans %}Товар успешно добавлен в корзину!{% endtrans %}</p>
+                                                                    <a class="btn btn_primary"  href="{{ url('cart:cart') }}">
+                                                                        <span class="btn-content">{% trans %}Перейти в корзину{% endtrans %}</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Section Section_column Section_columnRight">
+        <div class="wrap">
+            <div class="Section-content">
+                <div class="Slider Slider_carousel">
+                    <header class="Section-header Section-header_close">
+                        <h2 class="Section-title">{% trans %}Ограниченный тираж{% endtrans %}
+                        </h2>
+                        <div class="Section-control">
+                            <div class="Slider-navigate">
+                            </div>
+                        </div>
+                    </header>
+                    <div class="Slider-box Cards">
+                        {% for product in limited_products %}
+                            {% set price=product.avg_price|float %}
+                            <div class="Slider-item">
+                                <div class="Slider-content">
+                                    <div class="Card"><a class="Card-picture" href="{{ url('products:product-details', product.id) }}"><img src="{{ product.images.first().image.url }}" alt="{{ product.name }}.jpg" /></a>
+                                        <div class="Card-content">
+                                            <strong class="Card-title"><a href="{{ url('products:product-details', product.id) }}">{{ product.name }}</a>
+                                            </strong>
+                                            <div class="Card-description">
+                                                <div class="Card-cost"><span class="Card-price">{{ '%0.2f' % price }}</span>
+                                                </div>
+                                                <div class="Card-category">
+                                                    {% with parent = product.category.parent %}
+                                                        {% if parent %}{{ parent }} / {% endif %}{{ product.category }}
+                                                    {% endwith %}
+                                                </div>
+                                                <div class="Card-hover">
+                                                    <form method="post" action="#modal_open">
+                                                        {% csrf_token %}
+                                                        {{ cart_form }}
+                                                        <input type="hidden" class="product_id" id="product_id" name="product_id" value="{{ product.id }}">
+                                                        <input class="Card-btn" type="image"
+                                                            src="{{ static('img/icons/card/cart.svg') }}" alt="cart.svg">
+                                                    </form>
+                                                    <div id="modal_open" class="my_modal">
+                                                        <div class="my_modal-dialog">
+                                                            <div class="my_modal-content">
+                                                                <div class="my_modal-header">
+                                                                    <p class="my_modal-title">{% trans %}Поздравляем!{% endtrans %}</p>
+                                                                    <a href="#" title="{% trans %}Закрыть модальное окно{% endtrans %}" class="close">×</a>
+                                                                </div>
+                                                                <div class="my_modal-body">
+                                                                    <p>{% trans %}Товар успешно добавлен в корзину!{% endtrans %}</p>
+                                                                    <a class="btn btn_primary"  href="{{ url('cart:cart') }}">
+                                                                        <span class="btn-content">{% trans %}Перейти в корзину{% endtrans %}</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

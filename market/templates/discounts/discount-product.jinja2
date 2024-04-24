@@ -1,0 +1,54 @@
+{% extends 'base.jinja2' %}
+
+{% block title %}
+    Sale
+{% endblock %}
+
+{% block content %}
+    <body class="Site">
+    <div class="Middle Middle_top">
+        <div class="Section">
+            <div class="Card-date">
+                <strong class="Card-date-number">{{ discount_product.start_date.day }}
+                </strong><span class="Card-date-month">{{ discount_product.start_date.strftime('%B')[:3] }}</span>
+            </div>
+            <div class="Card-date Card-date_to">
+                <strong class="Card-date-number">{{ discount_product.end_date.day }}
+                </strong><span class="Card-date-month">{{ discount_product.end_date.strftime('%B')[:3] }}</span>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="wrap">
+                <div class="Product">
+                    <div>
+                        <h1>{{ discount_product.title }}</h1>
+                    </div>
+
+                    <div class="product-images">
+                        <img src="{{ static('img/content/sale/product.png') }}" alt="{{ _('Изображение товара') }}">
+                    </div>
+                    <div class="Tabs Tabs_default">
+                        <div class="Tabs-links">
+                            <a class="Tabs-link" href="#description">
+                                <span>{{ _('Описание') }}</span>
+                            </a>
+                        </div>
+                        <div class="Tabs-wrap">
+                            <div class="Tabs-block" id="description">
+                                <h3>{{ _('Событие') }}: {{ discount_product.title }}</h3>
+                                <h3>{{ _('Процент скидки') }}: {{ discount_product.percentage }}%</h3>
+                                <p>{{ discount_product.description }}</p>
+                                <h3>{{ _('Скидка действует на следующие товары') }}:</h3>
+                                {% for product in discount_product.products.all() %}
+                                    <h4>{{ product.name }}</h4>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}

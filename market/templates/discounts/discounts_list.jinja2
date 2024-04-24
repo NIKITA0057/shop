@@ -1,0 +1,106 @@
+{% extends 'base.jinja2' %}
+
+{% block title %}
+    Sale
+{% endblock %}
+
+{% block content %}
+    <div class="Middle Middle_top">
+        <div class="Middle-top">
+            <div class="wrap">
+                <div class="Middle-header">
+
+                    <ul class="breadcrumbs Middle-breadcrumbs">
+                        <li class="breadcrumbs-item"><a href="{{ url('product:index') }}">"{{ _('Главная') }}"</a>
+                        </li>
+                        <li class="breadcrumbs-item breadcrumbs-item_current"><span>"{{ _('Блог') }}"</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="Section">
+            <div class="wrap">
+                <div class="Cards Cards_blog">
+                    {% for discount in discounts %}
+                        {% if discount.is_relevant() %}
+                            <div class="Card"><a class="Card-picture"
+                                                 href="{{ url('discounts:discount-product-details', pk=discount.pk) }}"><img
+                                    src="{{ static('img/content/sale/product.png') }}" alt="sale.png"/></a>
+                                <div class="Card-date">
+                                    <strong class="Card-date-number">{{ discount.start_date.day }}
+                                    </strong><span
+                                        class="Card-date-month">{{ discount.start_date.strftime('%B')[:3] }}</span>
+                                </div>
+                                <div class="Card-date Card-date_to">
+                                    <strong class="Card-date-number">{{ discount.end_date.day }}
+                                    </strong><span
+                                        class="Card-date-month">{{ discount.end_date.strftime('%B')[:3] }}</span>
+                                </div>
+
+                                <div class="Card-content">
+                                    <strong class="Card-title"><a
+                                            href="{{ url('discounts:discount-product-details', pk=discount.pk) }}">{{ discount.title }}</a>
+                                    </strong>
+                                    <div class="Card-description">
+                                        {{ discount.description|truncate(15) }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    {% for cart in discount_carts %}
+                        {% if cart.is_relevant() %}
+                            <div class="Card"><a class="Card-picture"
+                                                 href="{{ url('discounts:discount-cart-details', pk=cart.pk) }}"><img
+                                    src="{{ static('img/content/sale/cart.jpg') }}" alt="cart.jpg"/></a>
+                                <div class="Card-date">
+                                    <strong class="Card-date-number">{{ cart.start_date.day }}
+                                    </strong><span
+                                        class="Card-date-month">{{ cart.start_date.strftime('%B')[:3] }}</span>
+                                </div>
+                                <div class="Card-date Card-date_to">
+                                    <strong class="Card-date-number">{{ cart.end_date.day }}
+                                    </strong><span class="Card-date-month">{{ cart.end_date.strftime('%B')[:3] }}</span>
+                                </div>
+                                <div class="Card-content">
+                                    <strong class="Card-title"><a
+                                            href="{{ url('discounts:discount-cart-details', pk=cart.pk) }}">{{ cart.title }}</a>
+                                    </strong>
+                                    <div class="Card-description">
+                                        {{ cart.description|truncate(30) }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    {% for set in discount_sets %}
+                        {% if set.is_relevant() %}
+                            <div class="Card"><a class="Card-picture"
+                                                 href="{{ url('discounts:discount-set-details', pk=set.pk) }}"><img
+                                    src="{{ static('img/content/sale/categories.jpg') }}" alt="categories.jpg"/></a>
+                                <div class="Card-date">
+                                    <strong class="Card-date-number">{{ set.start_date.day }}
+                                    </strong><span
+                                        class="Card-date-month">{{ set.start_date.strftime('%B')[:3] }}</span>
+                                </div>
+                                <div class="Card-date Card-date_to">
+                                    <strong class="Card-date-number">{{ set.end_date.day }}
+                                    </strong><span class="Card-date-month">{{ set.end_date.strftime('%B')[:3] }}</span>
+                                </div>
+                                <div class="Card-content">
+                                    <strong class="Card-title"><a
+                                            href="{{ url('discounts:discount-set-details', pk=set.pk) }}">{{ set.title }}</a>
+                                    </strong>
+                                    <div class="Card-description">
+                                        {{ set.description|truncate(30) }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

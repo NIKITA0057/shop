@@ -1,0 +1,55 @@
+{% extends 'base.jinja2' %}
+
+{% block title %}
+    {% trans %}История заказов{% endtrans %}
+{% endblock %}
+
+{% block content %}
+    <div class="Middle Middle_top">
+        <div class="Middle-top">
+            <div class="wrap">
+                <div class="Middle-header">
+                    <h1 class="Middle-title">{% trans %}История заказов{% endtrans %}</h1>
+                    <ul class="breadcrumbs Middle-breadcrumbs">
+                        <li class="breadcrumbs-item"><a href="{{ url('product:index') }}">{% trans %}Главная{% endtrans %}</a></li>
+                        <li class="breadcrumbs-item breadcrumbs-item_current"><span>{% trans %}История заказов{% endtrans %}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="Section Section_column Section_columnLeft">
+            <div class="wrap">
+                <div class="Section-column">
+                    <div class="Section-columnSection">
+                        <header class="Section-header">
+                            <strong class="Section-title">{% trans %}Навигация{% endtrans %}</strong>
+                        </header>
+                        <div class="Section-columnContent">
+                            <div class="NavigateProfile">
+                                <ul class="menu menu_vt">
+                                    <li class="menu-item"><a class="menu-link" href="{{ url('accounts:main') }}">{% trans %}Личный кабинет{% endtrans %}</a></li>
+                                    <li class="menu-item"><a class="menu-link" href="{{ url('accounts:profile') }}">{% trans %}Профиль{% endtrans %}</a></li>
+                                    <li class="menu-item_ACTIVE menu-item"><a class="menu-link" href="{{ url('order:history_order') }}">{% trans %}История заказов{% endtrans %}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Section-content">
+                    <header class="Section-header">
+                        <h2 class="Section-title">{{ _('Список заказов') }}</h2>
+                    </header>
+                    {% if orders %}
+                        <ul>
+                            {% for order in orders %}
+                               <li><a href="{{ url('order:detail_order', pk=order.id) }}">{{ _('Заказ №') }} {{ order.id }} - {{ order.created_at }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>{% trans %}У вас еще нет заказов.{% endtrans %}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

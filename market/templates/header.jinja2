@@ -1,0 +1,49 @@
+<div class="ControlPanel">
+    <div class="wrap">
+        <div class="row ControlPanel-row">
+            <div class="row-block">
+                <div class="row ControlPanel-rowSplit">
+                    <div class="row-block hide_700">
+                        <ul class="menu menu_img menu_smallImg ControlPanel-menu">
+                            <li class="menu-item"><a class="menu-link" href="#"><img
+                                    src=" {{ static('img/icons/socialHeader/tw.svg') }}" alt="tw.svg"/></a>
+                            </li>
+                            <li class="menu-item"><a class="menu-link" href="#"><img
+                                    src=" {{ static('img/icons/socialHeader/in.svg') }}" alt="in.svg"/></a>
+                            </li>
+                            <li class="menu-item"><a class="menu-link" href="#"><img
+                                    src=" {{ static('img/icons/socialHeader/pt.svg') }}" alt="pt.svg"/></a>
+                            </li>
+                            <li class="menu-item"><a class="menu-link" href="#"><img
+                                    src=" {{ static('img/icons/socialHeader/mail.svg') }}" alt="mail.svg"/></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <nav class="row-block">
+                <div class="row ControlPanel-rowSplit">
+                    <form action="{{ url('set_language') }}" method="post" type="hidden">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ request.get_full_path() }}">
+                        {% for language in LANGUAGES %}
+                            {% if language[0] != LANGUAGE_CODE %}
+                                <input name="language" type="hidden" value="{{ language[0] }}">
+                            {% endif %}
+                        {% endfor %}
+                        <input class="header__btn btn-reset" type="submit" value="{{ LANGUAGE_CODE.upper() }}">
+                    </form>
+                    <div class="row-block">
+                        {% if request.user.is_authenticated %}
+                            <a class="ControlPanel-title" href="{{ url('user:profile') }}">{{ _('Личный кабинет') }}</a>
+                        {% else %}
+                            <a class="ControlPanel-title" href="{{ url('user:login') }}">{{ _('Вход') }}</a>
+                            <a class="ControlPanel-title" href="{{ url('user:register') }}">{{ _('Регистрация') }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+</div>

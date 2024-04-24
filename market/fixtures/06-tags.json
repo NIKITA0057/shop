@@ -1,0 +1,247 @@
+[
+  {
+    "model": "products.tag",
+    "pk": 1,
+    "fields": {
+      "name": "Гаджеты"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 2,
+    "fields": {
+      "name": "Смартфоны"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 3,
+    "fields": {
+      "name": "Ноутбуки"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 4,
+    "fields": {
+      "name": "Видеокарты"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 5,
+    "fields": {
+      "name": "Процессоры"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 6,
+    "fields": {
+      "name": "Холодильники"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 7,
+    "fields": {
+      "name": "Стиральные машины"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 8,
+    "fields": {
+      "name": "Мужская одежда"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 9,
+    "fields": {
+      "name": "Женская одежда"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 10,
+    "fields": {
+      "name": "Детская одежда"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 11,
+    "fields": {
+      "name": "Фитнес"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 12,
+    "fields": {
+      "name": "Активный отдых"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 13,
+    "fields": {
+      "name": "Путешествия"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 14,
+    "fields": {
+      "name": "Косметика"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 15,
+    "fields": {
+      "name": "Медицинские товары"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 16,
+    "fields": {
+      "name": "Геймерская техника"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 17,
+    "fields": {
+      "name": "Кухонные приборы"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 18,
+    "fields": {
+      "name": "Спортивная обувь"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 19,
+    "fields": {
+      "name": "Детские игрушки"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 20,
+    "fields": {
+      "name": "Аудиотехника"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 21,
+    "fields": {
+      "name": "Домашний декор"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 22,
+    "fields": {
+      "name": "Фото и видео техника"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 23,
+    "fields": {
+      "name": "Книги и журналы"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 24,
+    "fields": {
+      "name": "Хобби и ремесла"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 25,
+    "fields": {
+      "name": "Домашние растения"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 26,
+    "fields": {
+      "name": "Садовые инструменты"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 27,
+    "fields": {
+      "name": "Электронные книги"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 28,
+    "fields": {
+      "name": "Автоаксессуары"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 29,
+    "fields": {
+      "name": "Домашние услуги"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 30,
+    "fields": {
+      "name": "Офисные товары"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 31,
+    "fields": {
+      "name": "Музыка"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 32,
+    "fields": {
+      "name": "Пылесос"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 33,
+    "fields": {
+      "name": "Электроника"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 34,
+    "fields": {
+      "name": "самокат"
+    }
+  },
+  {
+    "model": "products.tag",
+    "pk": 35,
+    "fields": {
+      "name": "Телевизор"
+    }
+  }
+]

@@ -1,0 +1,77 @@
+{% extends "base.jinja2" %}
+{% block content %}
+    <div class="Section Section_column Section_columnLeft">
+        <div class="wrap">
+            <div class="Section-column">
+                <div class="Section-columnSection">
+                    <header class="Section-header">
+                        <strong class="Section-title">{{ _('Навигация') }}
+                        </strong>
+                    </header>
+                    <div class="Section-columnContent">
+                        <div class="NavigateProfile">
+                            <ul class="menu menu_vt">
+                                <li class="menu-item"><a class="menu-link"
+                                                         href="{{ url('accounts:main') }}">{{ _('Личный кабинет') }}</a>
+                                </li>
+                                <li class="menu-item_ACTIVE menu-item"><a class="menu-link"
+                                                                          href="{{ url('accounts:profile') }}">{{ _('Профиль') }}</a>
+                                </li>
+                                <li class="menu-item"><a class="menu-link" href="{{ url('order:history_order') }}">{{ _('История заказов') }}</a>
+                                </li>
+                                 <li class="menu-item">
+                                        <a class="menu-link"
+                                           href="{{ url('shops:shop_dashboard') }}">{{ _('Мой магазин') }}</a>
+                                    </li>
+                                <li class="menu-item"><a class="menu-link" href="{{ url('accounts:viewing_history') }}">{{ _('История просмотров товаров') }}</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="Section-content">
+                <div class="Profile">
+                    <form class="form Profile-form" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="form-label" for="old_pass">{{ _('Ваша пароль') }}
+                                </label>
+                                <input class="form-input" id="old_pass" name="old_password" type="password"
+                                       data-validate="require"/>
+                            </div>
+                            <div class="form-groups">
+                                <label class="form-label" for="password1">{{ _('Пароль') }}
+                                </label>
+                                <input class="form-input" id="password1" name="new_password1" type="password"
+                                       data-validate="require" placeholder="{{ _('Тут можно изменить пароль') }}"/>
+                            </div>
+                            <div class="form-groups">
+                                <label class="form-label" for="password2">{{ _('Пароль') }}
+                                </label>
+                                <input class="form-input" id="password2" name="new_password2" type="password"
+                                       data-validate="require" placeholder="{{ _('повторите пароль') }}"/>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="Profile-btn">
+                                    <button class="btn btn_success" type="submit">{{ _('Сохранить') }}
+                                    </button>
+                                </div>
+                                <div class="Profile-success">{% if messages %}
+                                    {% for message in messages %}
+                                        {{ message }}
+                                    {% endfor %}
+                                {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

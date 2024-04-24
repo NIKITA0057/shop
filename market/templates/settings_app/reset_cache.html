@@ -1,0 +1,10 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+
+  <h2>Cache Reset</h2>
+  <form method="post" action="{% url 'settings_app:reset_cache' %}">
+    {% csrf_token %}
+    <button type="submit">Reset Cache</button>
+  </form>
+{% endblock %}

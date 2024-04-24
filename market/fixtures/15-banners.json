@@ -1,0 +1,46 @@
+[
+  {
+    "model": "products.banner",
+    "pk": 1,
+    "fields": {
+      "name": "Тестовый_баннер_1",
+      "description": "Самый обычный рекламный текст",
+      "actual": true,
+      "preview": "/banners/bigGoods.png",
+      "link": "http://www.example.com/Тестовый_баннер_1"
+    }
+  },
+  {
+    "model": "products.banner",
+    "pk": 2,
+    "fields": {
+      "name": "Тестовый_баннер_2",
+      "description": "Самый обычный рекламный текст",
+      "actual": true,
+      "preview": "/banners/bigGoods2.jpg",
+      "link": "http://www.example.com/Тестовый_баннер_2"
+    }
+  },
+  {
+    "model": "products.banner",
+    "pk": 3,
+    "fields": {
+      "name": "Тестовый_баннер_3",
+      "description": "Самый обычный рекламный текст",
+      "actual": true,
+      "preview": "/banners/card.jpg",
+      "link": "http://www.example.com/Тестовый_баннер_3"
+    }
+  },
+  {
+    "model": "products.banner",
+    "pk": 4,
+    "fields": {
+      "name": "Тестовый_баннер_4",
+      "description": "Самый обычный рекламный текст",
+      "actual": true,
+      "preview": "/banners/slider.png",
+      "link": "http://www.example.com/Тестовый_баннер_4"
+    }
+  }
+]

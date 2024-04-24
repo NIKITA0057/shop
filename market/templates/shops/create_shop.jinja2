@@ -1,0 +1,65 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+    <div class="Middle Middle_top">
+        <div class="Section Section_column Section_columnLeft">
+            <div class="wrap">
+                <div class="Section-column">
+                    <div class="Section-columnSection">
+                        <header class="Section-header">
+                            <strong class="Section-title">{{ _('Навигация') }}</strong>
+                        </header>
+                        <div class="Section-columnContent">
+                            <ul class="menu menu_vt">
+                                <div class="NavigateProfile">
+                                    <li class="menu-item"><a class="menu-link"
+                                                             href="{{ url('accounts:main') }}">{{ _('Вернуться к профилю') }}</a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Section-content">
+                    <h1>{{ _('Создание вашего магазина') }}</h1>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label for="{{ form.name.id_for_label }}">
+                                {{ _('Название магазина') }}:
+                            </label>
+                            {{ form.name }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.contact_info.id_for_label }}">
+                                {{ _('Контактная информация') }}:
+                            </label>
+                            {{ form.contact_info }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.description.id_for_label }}">
+                                {{ _('Описание') }}:
+                            </label>
+                            {{ form.description }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.logo.id_for_label }}">
+                                {{ _('Логотип') }}:
+                            </label>
+                            {{ form.logo }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            {{ _('Создать магазин') }}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

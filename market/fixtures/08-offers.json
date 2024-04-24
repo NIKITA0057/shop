@@ -1,0 +1,1392 @@
+[
+    {
+        "model": "shops.offer",
+        "pk": 1,
+        "fields": {
+            "shop": 1,
+            "product": 1,
+            "price": 1500.00,
+            "remains": 50
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 2,
+        "fields": {
+            "shop": 2,
+            "product": 2,
+            "price": 1200.00,
+            "remains": 30
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 3,
+        "fields": {
+            "shop": 3,
+            "product": 3,
+            "price": 800.00,
+            "remains": 20
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 4,
+        "fields": {
+            "shop": 4,
+            "product": 4,
+            "price": 2500.00,
+            "remains": 10
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 5,
+        "fields": {
+            "shop": 5,
+            "product": 5,
+            "price": 100.00,
+            "remains": 5
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 6,
+        "fields": {
+            "shop": 6,
+            "product": 6,
+            "price": 1800.00,
+            "remains": 25
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 7,
+        "fields": {
+            "shop": 7,
+            "product": 7,
+            "price": 500.00,
+            "remains": 15
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 8,
+        "fields": {
+            "shop": 8,
+            "product": 8,
+            "price": 3000.00,
+            "remains": 40
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 9,
+        "fields": {
+            "shop": 8,
+            "product": 6,
+            "price": 2547.0,
+            "remains": 43
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 10,
+        "fields": {
+            "shop": 6,
+            "product": 23,
+            "price": 4526.0,
+            "remains": 20
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 11,
+        "fields": {
+            "shop": 7,
+            "product": 8,
+            "price": 3801.0,
+            "remains": 13
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 12,
+        "fields": {
+            "shop": 6,
+            "product": 47,
+            "price": 912.0,
+            "remains": 28
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 13,
+        "fields": {
+            "shop": 4,
+            "product": 54,
+            "price": 2813.0,
+            "remains": 37
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 14,
+        "fields": {
+            "shop": 6,
+            "product": 22,
+            "price": 4930.0,
+            "remains": 44
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 15,
+        "fields": {
+            "shop": 1,
+            "product": 51,
+            "price": 3659.0,
+            "remains": 37
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 16,
+        "fields": {
+            "shop": 5,
+            "product": 45,
+            "price": 4955.0,
+            "remains": 50
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 17,
+        "fields": {
+            "shop": 7,
+            "product": 48,
+            "price": 4783.0,
+            "remains": 40
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 18,
+        "fields": {
+            "shop": 3,
+            "product": 50,
+            "price": 1047.0,
+            "remains": 15
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 19,
+        "fields": {
+            "shop": 8,
+            "product": 23,
+            "price": 1810.0,
+            "remains": 43
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 20,
+        "fields": {
+            "shop": 4,
+            "product": 1,
+            "price": 1595.0,
+            "remains": 45
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 21,
+        "fields": {
+            "shop": 1,
+            "product": 44,
+            "price": 850.0,
+            "remains": 14
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 22,
+        "fields": {
+            "shop": 3,
+            "product": 52,
+            "price": 1200.0,
+            "remains": 30
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 23,
+        "fields": {
+            "shop": 1,
+            "product": 36,
+            "price": 781.0,
+            "remains": 18
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 24,
+        "fields": {
+            "shop": 6,
+            "product": 32,
+            "price": 1182.0,
+            "remains": 43
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 25,
+        "fields": {
+            "shop": 4,
+            "product": 3,
+            "price": 3769.0,
+            "remains": 14
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 26,
+        "fields": {
+            "shop": 4,
+            "product": 38,
+            "price": 3370.0,
+            "remains": 5
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 27,
+        "fields": {
+            "shop": 3,
+            "product": 49,
+            "price": 4743.0,
+            "remains": 4
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 28,
+        "fields": {
+            "shop": 4,
+            "product": 8,
+            "price": 3595.0,
+            "remains": 47
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 29,
+        "fields": {
+            "shop": 7,
+            "product": 11,
+            "price": 1955.0,
+            "remains": 38
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 30,
+        "fields": {
+            "shop": 7,
+            "product": 22,
+            "price": 3603.0,
+            "remains": 26
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 31,
+        "fields": {
+            "shop": 5,
+            "product": 13,
+            "price": 1939.0,
+            "remains": 24
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 32,
+        "fields": {
+            "shop": 1,
+            "product": 8,
+            "price": 338.0,
+            "remains": 49
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 33,
+        "fields": {
+            "shop": 7,
+            "product": 57,
+            "price": 3541.0,
+            "remains": 29
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 34,
+        "fields": {
+            "shop": 6,
+            "product": 4,
+            "price": 3872.0,
+            "remains": 12
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 35,
+        "fields": {
+            "shop": 7,
+            "product": 54,
+            "price": 797.0,
+            "remains": 50
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 36,
+        "fields": {
+            "shop": 8,
+            "product": 51,
+            "price": 1171.0,
+            "remains": 39
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 37,
+        "fields": {
+            "shop": 3,
+            "product": 47,
+            "price": 4108.0,
+            "remains": 47
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 38,
+        "fields": {
+            "shop": 6,
+            "product": 54,
+            "price": 4797.0,
+            "remains": 47
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 39,
+        "fields": {
+            "shop": 3,
+            "product": 24,
+            "price": 78.0,
+            "remains": 10
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 40,
+        "fields": {
+            "shop": 2,
+            "product": 52,
+            "price": 3018.0,
+            "remains": 31
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 41,
+        "fields": {
+            "shop": 6,
+            "product": 35,
+            "price": 132.0,
+            "remains": 50
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 42,
+        "fields": {
+            "shop": 1,
+            "product": 42,
+            "price": 2268.0,
+            "remains": 26
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 43,
+        "fields": {
+            "shop": 5,
+            "product": 59,
+            "price": 4383.0,
+            "remains": 36
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 44,
+        "fields": {
+            "shop": 1,
+            "product": 4,
+            "price": 4584.0,
+            "remains": 45
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 45,
+        "fields": {
+            "shop": 6,
+            "product": 59,
+            "price": 218.0,
+            "remains": 25
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 46,
+        "fields": {
+            "shop": 4,
+            "product": 41,
+            "price": 3772.0,
+            "remains": 45
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 47,
+        "fields": {
+            "shop": 3,
+            "product": 60,
+            "price": 4213.0,
+            "remains": 45
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 48,
+        "fields": {
+            "shop": 6,
+            "product": 43,
+            "price": 1644.0,
+            "remains": 25
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 49,
+        "fields": {
+            "shop": 6,
+            "product": 51,
+            "price": 3585.0,
+            "remains": 45
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 50,
+        "fields": {
+            "shop": 8,
+            "product": 1,
+            "price": 1113.0,
+            "remains": 11
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 51,
+        "fields": {
+            "shop": 5,
+            "product": 8,
+            "price": 1453.0,
+            "remains": 12
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 52,
+        "fields": {
+            "shop": 7,
+            "product": 12,
+            "price": 833.0,
+            "remains": 37
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 53,
+        "fields": {
+            "shop": 5,
+            "product": 41,
+            "price": 2496.0,
+            "remains": 33
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 54,
+        "fields": {
+            "shop": 5,
+            "product": 29,
+            "price": 2669.0,
+            "remains": 50
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 55,
+        "fields": {
+            "shop": 2,
+            "product": 3,
+            "price": 2825.0,
+            "remains": 29
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 56,
+        "fields": {
+            "shop": 5,
+            "product": 51,
+            "price": 3574.0,
+            "remains": 34
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 57,
+        "fields": {
+            "shop": 3,
+            "product": 8,
+            "price": 4193.0,
+            "remains": 44
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 58,
+        "fields": {
+            "shop": 8,
+            "product": 2,
+            "price": 1612.0,
+            "remains": 12
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 59,
+        "fields": {
+            "shop": 8,
+            "product": 39,
+            "price": 2984.0,
+            "remains": 42
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 60,
+        "fields": {
+            "shop": 8,
+            "product": 5,
+            "price": 1905.0,
+            "remains": 10
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 61,
+        "fields": {
+            "shop": 6,
+            "product": 24,
+            "price": 2794.0,
+            "remains": 11
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 62,
+        "fields": {
+            "shop": 5,
+            "product": 58,
+            "price": 921.0,
+            "remains": 50
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 63,
+        "fields": {
+            "shop": 8,
+            "product": 44,
+            "price": 260.0,
+            "remains": 14
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 64,
+        "fields": {
+            "shop": 3,
+            "product": 51,
+            "price": 3930.0,
+            "remains": 48
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 65,
+        "fields": {
+            "shop": 8,
+            "product": 27,
+            "price": 3287.0,
+            "remains": 9
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 66,
+        "fields": {
+            "shop": 4,
+            "product": 6,
+            "price": 3258.0,
+            "remains": 4
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 67,
+        "fields": {
+            "shop": 2,
+            "product": 26,
+            "price": 2248.0,
+            "remains": 34
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 68,
+        "fields": {
+            "shop": 7,
+            "product": 47,
+            "price": 3851.0,
+            "remains": 39
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 69,
+        "fields": {
+            "shop": 1,
+            "product": 12,
+            "price": 4102.0,
+            "remains": 14
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 70,
+        "fields": {
+            "shop": 3,
+            "product": 7,
+            "price": 819,
+            "remains": 14
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 71,
+        "fields": {
+            "shop": 6,
+            "product": 7,
+            "price": 4782,
+            "remains": 50
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 72,
+        "fields": {
+            "shop": 2,
+            "product": 9,
+            "price": 1440,
+            "remains": 32
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 73,
+        "fields": {
+            "shop": 8,
+            "product": 9,
+            "price": 2740,
+            "remains": 9
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 74,
+        "fields": {
+            "shop": 1,
+            "product": 11,
+            "price": 83,
+            "remains": 7
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 75,
+        "fields": {
+            "shop": 8,
+            "product": 11,
+            "price": 1722,
+            "remains": 42
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 76,
+        "fields": {
+            "shop": 2,
+            "product": 13,
+            "price": 2824,
+            "remains": 45
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 77,
+        "fields": {
+            "shop": 8,
+            "product": 13,
+            "price": 1947,
+            "remains": 13
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 78,
+        "fields": {
+            "shop": 2,
+            "product": 14,
+            "price": 2337,
+            "remains": 23
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 79,
+        "fields": {
+            "shop": 5,
+            "product": 14,
+            "price": 4626,
+            "remains": 10
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 80,
+        "fields": {
+            "shop": 3,
+            "product": 21,
+            "price": 1511,
+            "remains": 48
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 81,
+        "fields": {
+            "shop": 2,
+            "product": 21,
+            "price": 2505,
+            "remains": 35
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 82,
+        "fields": {
+            "shop": 5,
+            "product": 25,
+            "price": 636,
+            "remains": 7
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 83,
+        "fields": {
+            "shop": 4,
+            "product": 25,
+            "price": 1819,
+            "remains": 49
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 84,
+        "fields": {
+            "shop": 4,
+            "product": 26,
+            "price": 2635,
+            "remains": 10
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 85,
+        "fields": {
+            "shop": 8,
+            "product": 26,
+            "price": 1451,
+            "remains": 8
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 86,
+        "fields": {
+            "shop": 6,
+            "product": 27,
+            "price": 390,
+            "remains": 11
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 87,
+        "fields": {
+            "shop": 7,
+            "product": 27,
+            "price": 4818,
+            "remains": 16
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 88,
+        "fields": {
+            "shop": 5,
+            "product": 28,
+            "price": 2271,
+            "remains": 22
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 89,
+        "fields": {
+            "shop": 6,
+            "product": 28,
+            "price": 4242,
+            "remains": 41
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 90,
+        "fields": {
+            "shop": 1,
+            "product": 29,
+            "price": 1102,
+            "remains": 33
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 91,
+        "fields": {
+            "shop": 4,
+            "product": 29,
+            "price": 441,
+            "remains": 26
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 92,
+        "fields": {
+            "shop": 7,
+            "product": 30,
+            "price": 4611,
+            "remains": 26
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 93,
+        "fields": {
+            "shop": 4,
+            "product": 30,
+            "price": 2486,
+            "remains": 31
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 94,
+        "fields": {
+            "shop": 7,
+            "product": 31,
+            "price": 4430,
+            "remains": 24
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 95,
+        "fields": {
+            "shop": 8,
+            "product": 31,
+            "price": 3055,
+            "remains": 44
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 96,
+        "fields": {
+            "shop": 4,
+            "product": 32,
+            "price": 2380,
+            "remains": 9
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 97,
+        "fields": {
+            "shop": 3,
+            "product": 32,
+            "price": 4131,
+            "remains": 47
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 98,
+        "fields": {
+            "shop": 1,
+            "product": 33,
+            "price": 2388,
+            "remains": 31
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 99,
+        "fields": {
+            "shop": 6,
+            "product": 33,
+            "price": 3585,
+            "remains": 22
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 100,
+        "fields": {
+            "shop": 7,
+            "product": 34,
+            "price": 581,
+            "remains": 4
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 101,
+        "fields": {
+            "shop": 8,
+            "product": 34,
+            "price": 4615,
+            "remains": 27
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 102,
+        "fields": {
+            "shop": 8,
+            "product": 35,
+            "price": 3783,
+            "remains": 28
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 103,
+        "fields": {
+            "shop": 2,
+            "product": 35,
+            "price": 4976,
+            "remains": 31
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 104,
+        "fields": {
+            "shop": 4,
+            "product": 36,
+            "price": 1543,
+            "remains": 20
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 105,
+        "fields": {
+            "shop": 6,
+            "product": 36,
+            "price": 1768,
+            "remains": 21
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 106,
+        "fields": {
+            "shop": 4,
+            "product": 37,
+            "price": 4973,
+            "remains": 15
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 107,
+        "fields": {
+            "shop": 8,
+            "product": 37,
+            "price": 2544,
+            "remains": 21
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 108,
+        "fields": {
+            "shop": 6,
+            "product": 38,
+            "price": 579,
+            "remains": 18
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 109,
+        "fields": {
+            "shop": 3,
+            "product": 38,
+            "price": 1628,
+            "remains": 36
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 110,
+        "fields": {
+            "shop": 6,
+            "product": 39,
+            "price": 3129,
+            "remains": 21
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 111,
+        "fields": {
+            "shop": 2,
+            "product": 39,
+            "price": 2382,
+            "remains": 19
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 112,
+        "fields": {
+            "shop": 2,
+            "product": 40,
+            "price": 3567,
+            "remains": 38
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 113,
+        "fields": {
+            "shop": 8,
+            "product": 40,
+            "price": 1724,
+            "remains": 42
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 114,
+        "fields": {
+            "shop": 3,
+            "product": 42,
+            "price": 3991,
+            "remains": 16
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 115,
+        "fields": {
+            "shop": 6,
+            "product": 42,
+            "price": 2838,
+            "remains": 6
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 116,
+        "fields": {
+            "shop": 8,
+            "product": 43,
+            "price": 4939,
+            "remains": 32
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 117,
+        "fields": {
+            "shop": 3,
+            "product": 43,
+            "price": 1358,
+            "remains": 25
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 118,
+        "fields": {
+            "shop": 3,
+            "product": 45,
+            "price": 2507,
+            "remains": 19
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 119,
+        "fields": {
+            "shop": 8,
+            "product": 45,
+            "price": 3473,
+            "remains": 9
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 120,
+        "fields": {
+            "shop": 1,
+            "product": 46,
+            "price": 1192,
+            "remains": 42
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 121,
+        "fields": {
+            "shop": 6,
+            "product": 46,
+            "price": 4985,
+            "remains": 13
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 122,
+        "fields": {
+            "shop": 5,
+            "product": 48,
+            "price": 1584,
+            "remains": 48
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 123,
+        "fields": {
+            "shop": 1,
+            "product": 48,
+            "price": 1535,
+            "remains": 15
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 124,
+        "fields": {
+            "shop": 7,
+            "product": 49,
+            "price": 3479,
+            "remains": 8
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 125,
+        "fields": {
+            "shop": 1,
+            "product": 49,
+            "price": 4204,
+            "remains": 26
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 126,
+        "fields": {
+            "shop": 5,
+            "product": 50,
+            "price": 3913,
+            "remains": 16
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 127,
+        "fields": {
+            "shop": 4,
+            "product": 50,
+            "price": 3758,
+            "remains": 24
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 128,
+        "fields": {
+            "shop": 5,
+            "product": 53,
+            "price": 3620,
+            "remains": 27
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 129,
+        "fields": {
+            "shop": 6,
+            "product": 53,
+            "price": 501,
+            "remains": 50
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 130,
+        "fields": {
+            "shop": 4,
+            "product": 55,
+            "price": 832,
+            "remains": 22
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 131,
+        "fields": {
+            "shop": 6,
+            "product": 55,
+            "price": 4962,
+            "remains": 22
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 132,
+        "fields": {
+            "shop": 2,
+            "product": 56,
+            "price": 3458,
+            "remains": 6
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 133,
+        "fields": {
+            "shop": 4,
+            "product": 56,
+            "price": 3436,
+            "remains": 48
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 134,
+        "fields": {
+            "shop": 6,
+            "product": 57,
+            "price": 1303,
+            "remains": 7
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 135,
+        "fields": {
+            "shop": 1,
+            "product": 57,
+            "price": 4770,
+            "remains": 16
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 136,
+        "fields": {
+            "shop": 2,
+            "product": 58,
+            "price": 4877,
+            "remains": 14
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 137,
+        "fields": {
+            "shop": 3,
+            "product": 58,
+            "price": 2340,
+            "remains": 32
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 138,
+        "fields": {
+            "shop": 2,
+            "product": 60,
+            "price": 526,
+            "remains": 48
+        }
+    },
+    {
+        "model": "shops.offer",
+        "pk": 139,
+        "fields": {
+            "shop": 7,
+            "product": 60,
+            "price": 4437,
+            "remains": 25
+        }
+    }
+]

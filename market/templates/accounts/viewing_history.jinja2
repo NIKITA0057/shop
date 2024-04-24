@@ -1,0 +1,48 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+    <style>
+        .ProductCard-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .ProductCard-look {
+            width: 200px;
+            margin: 10px;
+        }
+
+        .Card {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .Card-picture img {
+            max-width: 100%;
+        }
+
+         .Card-details {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+
+    <h2>{{ _('История просмотров товаров') }}</h2>
+
+    <div class="ProductCard-container">
+        {% for product in viewed_products %}
+            <div class="ProductCard-look">
+                {% if product.images.exists %}
+                    <div class="Card">
+                        <a class="Card-picture" href="{{ url('products:product-details', product.id) }}">
+                            <img src="{{ product.images.first().image.url }}" alt="card.jpg"/>
+                        </a>
+                    </div>
+                {% endif %}
+                <div class="Card-details">
+                    <a href="{{ url('products:product-details', product.id) }}">{{ product.name }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

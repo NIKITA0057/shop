@@ -1,0 +1,66 @@
+[{
+    "model": "discounts.discountproduct",
+    "pk": 1,
+    "fields": {
+        "title": "Скидка на ноутбук и телефон",
+        "description": "Скидка на смартфоны Galaxy S21 и ноутбуки Dell XPS 13",
+        "percentage": 5,
+        "start_date": "2024-03-17",
+        "end_date": "2024-06-14",
+        "is_active": true,
+        "weight": "0.09",
+        "products": [1, 2]
+    }
+}, {
+    "model": "discounts.discountproduct",
+    "pk": 2,
+    "fields": {
+        "title": "Морозные дни!",
+        "description": "Скидки на товары, связанные с холодом!",
+        "percentage": 15,
+        "start_date": "2024-03-17",
+        "end_date": "2024-09-13",
+        "is_active": true,
+        "weight": "0.10",
+        "products": [5, 11]
+    }
+}, {
+    "model": "discounts.discountproduct",
+    "pk": 3,
+    "fields": {
+        "title": "Успей купить бытовую технику!",
+        "description": "Обнови бытовую технику дома! Самые нужные товары с большой скидкой!",
+        "percentage": 25,
+        "start_date": "2024-03-17",
+        "end_date": "2024-06-14",
+        "is_active": true,
+        "weight": "0.16",
+        "products": [6, 34, 5, 37, 41, 25, 28, 29]
+    }
+}, {
+    "model": "discounts.discountproduct",
+    "pk": 4,
+    "fields": {
+        "title": "Зима не помеха!",
+        "description": "Кажется мы говорили, что к зиме нужно готовиться летом, а лучше весной?",
+        "percentage": 10,
+        "start_date": "2024-03-01",
+        "end_date": "2024-03-16",
+        "is_active": true,
+        "weight": "0.02",
+        "products": [7, 9, 11, 23]
+    }
+}, {
+    "model": "discounts.discountproduct",
+    "pk": 5,
+    "fields": {
+        "title": "Жаркое лето в красивом платье!",
+        "description": "Весна - лучшее время купить платье на лето!",
+        "percentage": 5,
+        "start_date": "2024-03-01",
+        "end_date": "2024-07-26",
+        "is_active": true,
+        "weight": "0.06",
+        "products": [8, 22]
+    }
+}]

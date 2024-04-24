@@ -1,0 +1,6 @@
+[MAIN]
+ignore=migrations,tests,tests.py,apps.py,manage.py
+disable=E1101,R0903
+
+[FORMAT]
+max-line-length=119

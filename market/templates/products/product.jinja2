@@ -1,0 +1,329 @@
+{% extends 'base.jinja2' %}
+
+{% block title %}
+    MEGANO
+{% endblock %}
+
+{% block content %}
+    <div class="Middle Middle_top">
+        <div class="Section">
+            <div class="wrap">
+                <div class="ProductCard-desk">
+                    <div class="Product">
+                        <div class="ProductCard">
+                            <div class="ProductCard-look">
+                                <div class="ProductCard-photo">
+                                    <img src="{{ product.images.first().image.url }}" alt="{{ product.name }}"/>
+                                </div>
+                                <div class="ProductCard-picts">
+                                    {% if product.images %}
+                                        {% for image in product.images.all() %}
+                                            <a class="ProductCard-pict" href="{{ image.image.url }}">
+                                                <img src="{{ image.image.url }}" alt="{{ product.name }} Image">
+                                            </a>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="ProductCard-desc">
+                                <div class="ProductCard-header">
+                                    <h2 class="ProductCard-title">{{ product.name }}</h2>
+                                    <div class="ProductCard-info">
+                                        <div class="ProductCard-cost">
+                                            <div class="ProductCard-price">
+                                                {% for offer in offers.all() %}
+
+                                                    {{ offer.price }} ,
+
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ProductCard-text">
+                                    {{ product.description }}
+                                </div>
+                                <div class="ProductCard-cart">
+
+                                    <form class="ProductCard-cart" method="post" action="#modal_open">
+                                        {% csrf_token %}
+                                    <div class="ProductCard-cartElement ProductCard-cartElement_amount">
+                                        <div class="Amount Amount_product">
+                                            <button class="Amount-remove" type="button"></button>
+                                            {{ cart_form.quantity }}
+                                            <button class="Amount-add" type="button"></button>
+                                        </div>
+                                    </div>
+                                        <input type="hidden" class="offer" id="offer" name="offer">
+                                    <div class="ProductCard-cartElement">
+                                        <button class="btn btn_primary" type="submit">
+                                            <img class="btn-icon" src="{{ static('img/icons/card/cart_white.svg') }}"
+                                                 alt="cart_white.svg"/>
+                                            <span class="btn-content">{{ _("Купить") }}</span>
+                                        </button>
+                                    </div>
+                                    </form>
+
+                                <div id="modal_open" class="my_modal">
+                                    <div class="my_modal-dialog">
+                                        <div class="my_modal-content">
+                                            <div class="my_modal-header">
+                                                <p class="my_modal-title">{{ _("Поздравляем!") }}</p>
+                                                <a href="#" title="Закрыть модальное окно" class="close">×</a>
+                                            </div>
+                                            <div class="my_modal-body">
+                                                <p>{{ _("Товар успешно добавлен в корзину!") }}</p>
+                                                <a class="btn btn_primary"  href="{{ url('cart:cart') }}">
+                                                    <span class="btn-content">{{ _("Перейти в корзину") }}</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="ProductCard-footer">
+                                    <div class="ProductCard-tags">
+                                        <strong class="ProductCard-tagsTitle">{{ _("Теги") }}:</strong>
+                                        {% for tag in product.tags.all() %}
+
+                                            <a href="{{ url('products:catalog') }}?tag={{ tag.name }}">{{ tag.name }}</a>{% if not loop.last %},{% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Tabs Tabs_default">
+                            <div class="Tabs-links">
+                                <a class="Tabs-link_ACTIVE Tabs-link"
+                                   href="#description"><span>{{ _('Описание') }}</span></a>
+                                <a class="Tabs-link_ACTIVE Tabs-link"
+                                   href="#sellers"><span>{{ _('Продавцы') }}</span></a>
+                                <a class="Tabs-link" href="#addit"><span>{{ _('Характеристика') }}</span></a>
+                                <a class="Tabs-link" href="#reviews">
+                                        <span>({{ reviews|count }})
+                                            {% if reviews|count in (0,11, 12, 13, 14) %}
+                                                {{ _('отзывов') }}
+                                            {% elif reviews|count % 10 == 1 %}
+                                                {{ _('отзыв') }}
+                                            {% elif reviews|count % 10 in (2, 3, 4) %}
+                                                {{ _('отзыва') }}
+                                            {% else %}
+                                                {{ _('отзывов') }}
+                                            {% endif %}
+                                        </span>
+                                    </a>
+                                </a>
+                            </div>
+
+                            <div class="Tabs-wrap">
+                                <div class="Tabs-block" id="description">
+                                    <h2>{{ product.description[:25] }}</h2>
+                                    <p>{{ product.description }}</p>
+                                    <div class="clearfix">
+                                    </div>
+                                    <div class="table">
+                                        <table>
+                                            <tr>
+                                                <th>{{ _('Характеристика') }}
+                                                </th>
+                                                <th>{{ _('Значение') }}
+                                                </th>
+                                            </tr>
+                                            {% for key, value in product.details.items() %}
+                                                <tr>
+                                                    <td>{{ key }}</td>
+                                                    <td>{{ value }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="Tabs-block" id="sellers">
+                                    {% if offers %}
+                                        {% for offer in offers %}
+                                                <div class="Order Order_anons">
+                                                    <div class="Order-personal">
+                                                        <div class="row">
+                                                            <div class="row-block">
+                                                                <a class="Order-title" href="#">{{ offer.shop.name }}</a>
+                                                                <div class="ProductCard-cartElement"
+                                                                     style="margin-top: 10px;">
+                                                                    <form class="ProductCard-cart" method="post" action="#modal_open">
+                                                                        {% csrf_token %}
+                                                                        <div class="ProductCard-cartElement ProductCard-cartElement_amount">
+                                                                            <div class="Amount Amount_product">
+                                                                                <button class="Amount-remove" type="button"></button>
+                                                                                {{ cart_form.quantity }}
+                                                                                <button class="Amount-add" type="button"></button>
+                                                                                <input type="hidden" class="offer" id="offer" name="offer" value="{{ offer.id }}">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="ProductCard-cartElement">
+                                                                            <button class="btn btn_primary" type="submit" name="btnform1" href="#modal_open">
+                                                                                <img class="btn-icon" src="{{ static('img/icons/card/cart_white.svg')}}" alt="cart_white.svg"/>
+                                                                                <span class="btn-content">{{ _('Купить') }}</span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row-block">
+                                                                <div class="Order-info Order-info_pay">
+                                                                    <div class="Order-infoType">{{ _('Оплата') }}:</div>
+                                                                    <div class="Order-infoContent">{{ _("Онлайн картой") }}</div>
+                                                                </div>
+                                                                <div class="Order-info">
+                                                                    <div class="Order-infoType">{{ _('Стоимость') }}:</div>
+                                                                    <div class="Order-infoContent">
+                                                                        <span class="Order-price">{{ offer.price }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        {% endfor %}
+                                {% else %}
+                                        <p>{{ _("Товара нет в продаже") }}</p>
+                                {% endif %}
+                                </div>
+
+                                <div class="Tabs-block table" id="addit">
+                                    <table>
+                                        <tr>
+                                            <th>Характеристика</th>
+                                            <th>Значение</th>
+                                        </tr>
+                                        {% for key, value in product.details.items() %}
+                                            <tr>
+                                                <td>{{ key }}</td>
+                                                <td>{{ value }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+
+                                <div class="Tabs-block" id="reviews">
+                                    {% if reviews %}
+                                        <header class="Section-header">
+                                            <h3 class="Section-title">({{ reviews|count }})
+                                                {% if reviews|count in (0,11, 12, 13, 14) %}
+                                                    отзывов
+                                                {% elif reviews|count % 10 == 1 %}
+                                                    отзыв
+                                                {% elif reviews|count % 10 in (2, 3, 4) %}
+                                                    отзыва
+                                                {% else %}
+                                                    отзывов
+                                                {% endif %}
+                                            </h3>
+                                        </header>
+                                        <div class="Comments">
+                                            {% for review in page_obj %}
+                                                <div class="Comment">
+                                                    <div class="Comment-column">
+                                                        <header class="Comment-header">
+                                                            <div>
+                                                                <strong class="Comment-title">{{ review.user }}</strong>
+                                                                <span class="Comment-date">{{ review.created_at.strftime('%H:%M %Y-%m-%d') }}</span>
+                                                            </div>
+                                                        </header>
+                                                        <div class="Comment-content">{{ review.text }}</div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="pagination">
+                                            <ul class="pagination__list">
+                                                <div>{{ _('Страницы') }}:</div>
+                                                {% for p in paginator.page_range %}
+                                                    {% if page_obj.number == p %}
+                                                        <li class="pagination__item">{{ p }}</li>
+                                                    {% else %}
+                                                        <li class="pagination__item">
+                                                            <a href="?page={{ p }}">{{ p }}</a>
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                    {% if request.user.is_authenticated %}
+                                        <header class="Section-header Section-header_product">
+                                            <h3 class="Section-title">{{ _('Написать отзыв') }}</h3>
+                                        </header>
+                                        {% if messages %}
+                                            <div class="messages">
+                                                <ul>
+                                                    {% for message in messages %}
+                                                        <li>{{ message }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        {% endif %}
+                                        <div class="Tabs-addComment">
+                                        <p>Отзыв должен быть более 10 символов, но менее 1000 символов.</p>
+                                            <form class="form" method="post"
+                                                  action="{{ url('product:add_review') }}">{% csrf_token %}
+                                                <div class="form-group">
+                                                <textarea class="form-textarea" name="text" id="review"
+                                                          placeholder="{{ _('Текст отзыва') }}"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="rating">Оценка товара</label>
+                                                    <input type="number" class="form-numberinput" name="rating" id="rating" placeholder="Оценка" min="1" max="5">
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                         <div class="form-group">
+                                                            <button class="btn btn_primary" type="submit" style="margin-top: 10px;">
+                                                                {{ _('Добавить отзыв') }}
+                                                            </button>
+                                                        </div>
+                                                        <div class="row-block">
+                                                            <input class="form-input" id="name" name="name" type="text"
+                                                                   placeholder="Name"
+                                                                   value="{{ request.user.username }}"
+                                                                   readonly="readonly">
+                                                        </div>
+                                                        <div class="row-block">
+                                                            <input class="form-input" id="email" name="email"
+                                                                   type="text"
+                                                                   placeholder="Email" value="{{ request.user.email }}"
+                                                                   readonly="readonly">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" name="product" value="{{ product.id }}">
+                                            </form>
+                                        </div>
+                                    {% else %}
+                                        <h4>{{ _('Для того чтобы оставить комментарий вы должны') }}
+                                            <a href="{{ url('accounts:login') }}?next={{ url('products:product-details', pk=product.pk) }}">{{ _('Войти') }}</a>
+
+                                            {{ _('или') }}
+                                            <a href="{{ url('accounts:register') }}?next={{ url('products:product-details', pk=product.pk) }}">{{ _('Зарегистрироваться') }}</a>
+                                        </h4>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form method="post" action="{{ url('comparison:add_to_comparison', product_id=product.id) }}">
+
+
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <input type="hidden" name="action" value="add">
+            <button type="submit" class="btn btn_primary">
+                <span class="btn-content">{{ _('Добавить к сравнению') }}</span>
+            </button>
+        </form>
+
+    </div>
+{% endblock %}

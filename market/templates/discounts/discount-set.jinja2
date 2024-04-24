@@ -1,0 +1,62 @@
+{% extends 'base.jinja2' %}
+
+{% block title %}
+    Sale
+{% endblock %}
+
+{% block content %}
+    <body class="Site">
+    <div class="Middle Middle_top">
+        <div class="Section">
+            <div class="Card-date">
+                <strong class="Card-date-number">{{ discount_set.start_date.day }}
+                </strong><span class="Card-date-month">{{ discount_set.start_date.strftime('%B')[:3] }}</span>
+            </div>
+            <div class="Card-date Card-date_to">
+                <strong class="Card-date-number">{{ discount_set.end_date.day }}
+                </strong><span class="Card-date-month">{{ discount_set.end_date.strftime('%B')[:3] }}</span>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="wrap">
+                <div class="Product">
+                    <div>
+                        <h1>{{ discount_set.title }}</h1>
+                    </div>
+
+                    <div class="product-images">
+                        <img src="{{ static('img/content/sale/categories.jpg') }}" alt="{{ _('Фон скидки') }}">
+                    </div>
+                    <div class="Tabs Tabs_default">
+                        <div class="Tabs-links">
+                            <a class="Tabs-link" href="#description">
+                                <span>{{ _('Описание') }}</span>
+                            </a>
+                        </div>
+                        <div class="Tabs-wrap">
+                            <div class="Tabs-block" id="description">
+                                <h3>{{ _('Событие') }}: {{ discount_set.title }}</h3>
+                                <h3>{{ _('Размер скидки на корзину') }}: {{ discount_set.discount_amount }}</h3>
+                                <p>{{ discount_set.description }}</p>
+                                <h3>{{ _('Товары из первого набора') }}:</h3>
+                                {% for pr in discount_set.first_group.all() %}
+                                    <a href="{{ url('product:product-details', pr.id) }}">
+                                        <h4>{{ pr.name }}</h4>
+                                    </a>
+                                {% endfor %}
+                                <h3>{{ _('Товары из второго набора') }}:</h3>
+                                {% for pr in discount_set.second_group.all() %}
+                                    <a href="{{ url('product:product-details', pr.id) }}">
+                                        <h4>{{ pr.name }}</h4>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}

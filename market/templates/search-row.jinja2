@@ -1,0 +1,57 @@
+<div class="Header-searchWrap">
+            <div class="wrap">
+                <div class="Header-categories">
+                    <div class="CategoriesButton">
+                        <div class="CategoriesButton-title">
+                            <div class="CategoriesButton-icon"><img src="{{ static('img/icons/allDep.svg') }}" alt="allDep.svg" />
+                            </div><span class="CategoriesButton-text">{{ _('Все категории') }}</span>
+                            <div class="CategoriesButton-arrow">
+                            </div>
+                        </div>
+                        <div class="CategoriesButton-content">
+                            {% set categories = all_categories()["main_categories"]%}
+                            {% for category in categories recursive %}
+                                {% if category.is_active() %}
+                                    {% set pk = category.pk %}
+                                    {% set children = all_categories()["children"][pk] %}
+                                    <div class="CategoriesButton-link">
+                                        <a href="{{ url('product:catalog') }}?category={{ category.name }}">
+                                            <div class="CategoriesButton-icon">
+                                                <img src="{{ static('img/icons/departments/6.svg') }}" alt="6.svg"/>
+                                            </div>
+                                            <span class="CategoriesButton-text">{{ category.name }}</span>
+                                        </a>
+                                    {% if children %}
+                                        <a class="CategoriesButton-arrow" href="#"></a>
+                                        <div class="CategoriesButton-submenu">
+                                            {{ loop(children) }}
+                                        </div>
+                                    {% endif %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                                <div class="CategoriesButton-link">
+                                    <a href="{{ url('discounts:discount-list') }}">
+                                        <div class="CategoriesButton-icon">
+                                            <img src="{{ static('img/icons/departments/6.svg') }}" alt="6.svg"/>
+                                        </div>
+                                        <span class="CategoriesButton-text">{{ _('Скидки!') }}</span>
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Header-searchLink"><img src="{{ static('img/icons/search.svg') }}" alt="search.svg" />
+                </div>
+                <div class="Header-search">
+                    <div class="search">
+                        <form class="form form_search" action="{{ url('products:catalog') }}" method="get">
+                            {% csrf_token %}
+                            <input class="search-input" id="query" name="name" type="text" placeholder="Samsung, Xiaomi, Apple" />
+                            <button class="search-button" type="submit" name="search" id="search"><img src="{{ static('img/icons/search.svg') }}" alt="search.svg" />{{ _('Поиск') }}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>

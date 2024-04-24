@@ -1,0 +1,122 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+    <div class="Middle Middle_top">
+        <div class="Section Section_column Section_columnLeft">
+            <div class="wrap">
+                <div class="Section-column">
+                    <div class="Section-columnSection">
+                        <header class="Section-header">
+                            <strong class="Section-title">{{ _('Навигация') }}</strong>
+                        </header>
+                        <div class="Section-columnContent">
+                            <div class="NavigateProfile">
+                                <ul class="menu menu_vt">
+                                    <li class="menu-item_ACTIVE menu-item">
+                                        <a class="menu-link"
+                                           href="{{ url('accounts:main') }}">{{ _('Личный кабинет') }}</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class="menu-link" href="{{ url('accounts:profile') }}">{{ _('Профиль') }}</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class="menu-link"
+                                           href="{{ url('order:history_order') }}">{{ _('История заказов') }}</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class="menu-link"
+                                           href="{{ url('shops:shop_dashboard') }}">{{ _('Мой магазин') }}</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class="menu-link"
+                                           href="{{ url('accounts:viewing_history') }}">{{ _('История просмотров товаров') }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Section-content">
+                    <h2>{{ _('Импорт начат') }}</h2>
+                    <p>{{ _('Импорт товаров запущен. Подождите, пожалуйста...') }}</p>
+                    <div><a href="{{ url('imports:import-page') }}">{{ _('Вернуться на страницу импорта') }}</a></div>
+
+
+                    <h2>{{ _('Детали импорта') }}</h2>
+
+                    {% if import_log %}
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>{{ _('ID импорта') }}</th>
+                                <th>{{ _('Имя файла') }}</th>
+                                <th>{{ _('Статус') }}</th>
+                                <th>{{ _('Временная метка') }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{ import_log.id }}</td>
+                                <td>{{ import_log.file_name }}</td>
+                                <td>{{ import_log.status }}</td>
+                                <td>{{ import_log.timestamp }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <p>{{ _('Нет данных об импорте.') }}</p>
+                    {% endif %}
+
+                    <h3>{{ _('Импортированные товары') }}</h3>
+                    {% set has_imported_products = imported_products is defined and imported_products %}
+                    {% if imported_products %}
+
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>{{ _('Название') }}</th>
+                                <th>{{ _('Основная категория') }}</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for product in imported_products %}
+                                <tr>
+                                    <td>{{ product.product.name }}</td>
+                                    <td>{{ product.product.category.name }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <p>{{ _('Нет импортированных товаров.') }}</p>
+                    {% endif %}
+
+                    <h3>{{ _('Итоги импорта') }}</h3>
+                    {% if has_imported_products %}
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>{{ _('Всего товаров') }}</th>
+                                <th>{{ _('Успешные импорты') }}</th>
+                                <th>{{ _('Неудачные импорты') }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{ imported_products|length }}</td>
+                                <td>{{ successful_imports_count }}</td>
+                                <td>{{ failed_imports_count }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <p>{{ _('Нет импортированных товаров.') }}</p>
+                    {% endif %}
+
+                    <p><a href="{{ url('imports:import-page') }}">{{ _('Вернуться на страницу импорта') }}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
